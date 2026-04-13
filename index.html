@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Secret Birthday ✨ 18th Countdown</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 30%, #0a0f1e, #030617);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating glowing orbs */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,105,180,0.2), transparent 70%);
+      top: 10%;
+      left: -5%;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(60px);
+      animation: floatGlow 12s infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(100,150,255,0.2), transparent 70%);
+      bottom: 5%;
+      right: -10%;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      animation: floatGlow2 15s infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      100% { transform: translate(30px, 40px) scale(1.2); opacity: 0.9; }
+    }
+    @keyframes floatGlow2 {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+      100% { transform: translate(-30px, -40px) scale(1.3); opacity: 0.8; }
+    }
+
+    .container {
+      background: rgba(15, 25, 45, 0.55);
+      backdrop-filter: blur(20px);
+      border-radius: 3rem;
+      padding: 2.5rem 2rem;
+      max-width: 650px;
+      width: 100%;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.08);
+      transition: all 0.4s ease;
+      text-align: center;
+      border: 1px solid rgba(255,255,240,0.2);
+      animation: fadeSlideUp 0.8s ease-out;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* COUNTDOWN STYLE */
+    .glow-text {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-card h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .date-highlight {
+      background: rgba(255,215,150,0.2);
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      backdrop-filter: blur(4px);
+      margin: 1rem 0 1.8rem 0;
+      border: 1px solid rgba(255,200,100,0.5);
+      color: #FFE3B0;
+    }
+
+    .timer-wrapper {
+      background: rgba(0,0,0,0.35);
+      border-radius: 2rem;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .countdown-box {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .time-unit {
+      background: rgba(10, 20, 35, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      padding: 0.8rem 1rem;
+      min-width: 85px;
+      text-align: center;
+      border-bottom: 2px solid #ffb347;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .time-number {
+      font-size: 2.6rem;
+      font-weight: 800;
+      font-family: monospace;
+      letter-spacing: 2px;
+      background: linear-gradient(120deg, #FFF, #FFD966);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .time-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      color: #B9D0FF;
+      margin-top: 5px;
+    }
+
+    /* MAIN CONTENT (BIRTHDAY) */
+    .birthday-card h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #FFB347, #FF6B6B, #F9F3B0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -100% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .birthday-card p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin: 1rem 0;
+      color: #f0f3fa;
+    }
+
+    .cake-emoji {
+      font-size: 3.2rem;
+      margin: 15px 0;
+      display: inline-block;
+      animation: bounceCake 1.5s infinite;
+    }
+
+    @keyframes bounceCake {
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-8px); }
+    }
+
+    .spotify {
+      margin: 1.8rem 0 1rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .spotify:hover {
+      transform: scale(1.01);
+    }
+
+    iframe {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      margin-top: 1.5rem;
+      opacity: 0.7;
+      letter-spacing: 0.3px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+    }
+
+    /* responsive */
+    @media (max-width: 550px) {
+      .container {
+        padding: 1.8rem 1rem;
+      }
+      .time-number {
+        font-size: 1.8rem;
+      }
+      .time-unit {
+        min-width: 65px;
+        padding: 0.5rem;
+      }
+      .countdown-box {
+        gap: 0.8rem;
+      }
+      .birthday-card h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COUNTDOWN SECTION -->
+<div class="container countdown-card" id="countdownPage">
+  <div class="glow-text">✨ rahasia kecil ✨</div>
+  <h1>⏳ Masih terlalu cepat...</h1>
+  <p>Halaman spesial kejutan ulang tahun akan terbuka otomatis pada</p>
+  <div class="date-highlight">🎈 14 April 2026 — pukul 00:00 WIB 🎈</div>
+  <div class="timer-wrapper">
+    <div class="countdown-box" id="timerContainer">
+      <div class="time-unit"><div class="time-number" id="days">00</div><div class="time-label">HARI</div></div>
+      <div class="time-unit"><div class="time-number" id="hours">00</div><div class="time-label">JAM</div></div>
+      <div class="time-unit"><div class="time-number" id="minutes">00</div><div class="time-label">MENIT</div></div>
+      <div class="time-unit"><div class="time-number" id="seconds">00</div><div class="time-label">DETIK</div></div>
+    </div>
+  </div>
+  <p class="small-note">⭐ bersiaplah untuk kejutan manis ⭐</p>
+</div>
+
+<!-- MAIN BIRTHDAY CONTENT (awalnya tersembunyi) -->
+<div class="container birthday-card hidden" id="mainContent">
+  <div class="cake-emoji">🎂🎉</div>
+  <h1>Happy 18th Birthday! 🥳</h1>
+  <p>
+    Akhirnya waktu yang dinanti tiba ✨<br>
+    Selamat memasuki babak baru yang luar biasa! <br>
+    <strong>Semua impianmu layak terwujud 💫</strong><br>
+    Nikmati momen spesial ini dengan senyuman terindah ❤️
+  </p>
+  <!-- Spotify embed playlist (uplifting birthday vibe) -->
+  <div class="spotify">
+    <iframe 
+      style="border-radius:16px" 
+      src="https://open.spotify.com/playlist/1gzzuimTzV6l9Jx2p5KUvm" 
+      width="100%" 
+      height="160" 
+      frameBorder="0" 
+      allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+  <p class="small-note">🎵 putar lagunya, nikmati harimu 🎵</p>
+</div>
+
+<script>
+  (function() {
+    // TARGET: 14 April 2026, jam 00:00:00 (Waktu setempat / local time)
+    // Penting: Menggunakan local time agar sesuai zona pengguna.
+    // Membuat tanggal target berdasarkan tahun, bulan, tanggal, jam, menit, detik lokal.
+    const targetYear = 2026;
+    const targetMonth = 3;      // April = index 3 (0-based)
+    const targetDay = 14;
+    const targetHour = 0;
+    const targetMinute = 0;
+    const targetSecond = 0;
+    
+    let targetDate = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
+    
+    // Elemen DOM
+    const countdownPage = document.getElementById("countdownPage");
+    const mainContent = document.getElementById("mainContent");
+    const daysSpan = document.getElementById("days");
+    const hoursSpan = document.getElementById("hours");
+    const minutesSpan = document.getElementById("minutes");
+    const secondsSpan = document.getElementById("seconds");
+    
+    // Fungsi untuk update tampilan countdown
+    function updateCountdown() {
+      const now = new Date(); // waktu realtime user (local)
+      const distance = targetDate.getTime() - now.getTime();
+      
+      // Jika waktu sudah tercapai atau lewat (plus toleransi 1 detik)
+      if (distance <= 0) {
+        // Hentikan interval jika sudah aktif
+        if (window.countdownInterval) {
+          clearInterval(window.countdownInterval);
+          window.countdownInterval = null;
+        }
+        // Sembunyikan countdown, tampilkan main content
+        if (countdownPage && mainContent) {
+          countdownPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+        }
+        return;
+      }
+      
+      // Hitung sisa waktu
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Update tampilan dengan format dua digit
+      if (daysSpan) daysSpan.innerText = days < 10 ? '0' + days : days;
+      if (hoursSpan) hoursSpan.innerText = hours < 10 ? '0' + hours : hours;
+      if (minutesSpan) minutesSpan.innerText = minutes < 10 ? '0' + minutes : minutes;
+      if (secondsSpan) secondsSpan.innerText = seconds < 10 ? '0' + seconds : seconds;
+    }
+    
+    // Cek sekali di awal untuk antisipasi jika sudah lewat tanggal (misal akses setelah 14 April 2026)
+    function initialCheck() {
+      const now = new Date();
+      const targetCheck = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
+      if (now >= targetCheck) {
+        // Langsung tampilkan konten ulang tahun
+        if (countdownPage && mainContent) {
+          countdownPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+        }
+        return true; // menandakan sudah waktunya
+      }
+      return false;
+    }
+    
+    // Jalankan pengecekan awal
+    const isAlreadyTime = initialCheck();
+    
+    // Jika belum waktunya, mulai interval countdown realtime
+    if (!isAlreadyTime) {
+      // Update pertama langsung
+      updateCountdown();
+      // Set interval setiap detik (1000ms)
+      window.countdownInterval = setInterval(updateCountdown, 1000);
+    }
+    
+    // Tambahkan fallback untuk sinkronisasi ekstra (menjaga jika sistem tidur / delay)
+    // Namun setInterval sudah cukup. Juga pastikan jika halaman di-refresh pada detik H, tetap muncul.
+    // Bonus: Menggunakan visibility API untuk menghemat resource (opsional)
+    document.addEventListener("visibilitychange", function() {
+      if (!document.hidden && !isAlreadyTime && window.countdownInterval === null && new Date() < targetDate) {
+        // Jika halaman menjadi visible dan countdown belum berjalan serta belum waktunya, restart interval
+        updateCountdown();
+        window.countdownInterval = setInterval(updateCountdown, 1000);
+      } else if (!document.hidden && !isAlreadyTime && new Date() >= targetDate) {
+        // Saat halaman terlihat dan ternyata target sudah terlewati, pindahkan ke konten
+        if (countdownPage && mainContent && !mainContent.classList.contains("hidden") === false) {
+          countdownPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+          if (window.countdownInterval) clearInterval(window.countdownInterval);
+        }
+      }
+    });
+    
+    // SIMULASI PERBAIKAN WAKTU REALTIME: 
+    // Menambahkan pengecekan ekstra setiap 10 detik untuk memastikan tidak terjadi drift
+    // karena mungkin device sleep atau perubahan timezone? Namun tetap robust.
+    setInterval(function() {
+      // Jika countdown masih aktif dan target sudah tercapai, paksa pindah ke konten
+      if (countdownPage && !countdownPage.classList.contains("hidden")) {
+        const now = new Date();
+        const targetAgain = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
+        if (now >= targetAgain) {
+          if (window.countdownInterval) clearInterval(window.countdownInterval);
+          countdownPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+        }
+      }
+    }, 3000); // setiap 3 detik double-check
+    
+    // Koreksi minor: jika user membuka halaman tepat di detik perubahan, jangan sampai stuck.
+    // Memastikan jika halaman pertama kali load dengan waktu sudah melewati 00:00 14 Apr 2026, langsung main content.
+    window.addEventListener('load', function() {
+      const nowCheck = new Date();
+      const targetHard = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
+      if (nowCheck >= targetHard && countdownPage && !countdownPage.classList.contains("hidden")) {
+        if (window.countdownInterval) clearInterval(window.countdownInterval);
+        countdownPage.classList.add("hidden");
+        mainContent.classList.remove("hidden");
+      }
+      // juga untuk mencegah countdown negatif
+      if (!countdownPage.classList.contains("hidden")) {
+        const dist = targetHard.getTime() - nowCheck.getTime();
+        if (dist <= 0) {
+          countdownPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+        }
+      }
+    });
+    
+  })();
+</script>
+</body>
+</html>
