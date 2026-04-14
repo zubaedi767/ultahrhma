@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Secret Birthday ✨ 18th Countdown</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700&display=swap" rel="stylesheet">
+  <title>✨ 18th Orbit | Birthday Countdown & Surprise ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,7 +14,7 @@
 
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at 20% 30%, #0a0f1e, #030617);
+      background: radial-gradient(circle at 30% 10%, #0B0E1A, #010101);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,246 +22,293 @@
       padding: 1.5rem;
       position: relative;
       overflow-x: hidden;
+      cursor: default;
     }
 
-    /* Floating glowing orbs */
+    /* floating magical dust */
+    .star-field {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .star {
+      position: absolute;
+      background: radial-gradient(circle, #fff9c4, #ffd966);
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 4s infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0; transform: scale(0.5); }
+      100% { opacity: 0.9; transform: scale(1); }
+    }
+
+    /* floating neon orbs */
     body::before {
       content: '';
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255,105,180,0.2), transparent 70%);
-      top: 10%;
-      left: -5%;
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 80, 150, 0.25), transparent 70%);
+      top: -20%;
+      left: -15%;
       border-radius: 50%;
       pointer-events: none;
-      filter: blur(60px);
-      animation: floatGlow 12s infinite alternate;
+      filter: blur(90px);
+      animation: floatGlow1 18s infinite alternate;
+      z-index: 0;
     }
-
     body::after {
       content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(100,150,255,0.2), transparent 70%);
-      bottom: 5%;
-      right: -10%;
+      position: fixed;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(80, 150, 255, 0.25), transparent 70%);
+      bottom: -20%;
+      right: -15%;
       border-radius: 50%;
       pointer-events: none;
-      filter: blur(80px);
-      animation: floatGlow2 15s infinite alternate;
+      filter: blur(100px);
+      animation: floatGlow2 20s infinite alternate;
+      z-index: 0;
     }
-
-    @keyframes floatGlow {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
-      100% { transform: translate(30px, 40px) scale(1.2); opacity: 0.9; }
+    @keyframes floatGlow1 {
+      0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+      100% { transform: translate(60px, 70px) scale(1.3); opacity: 0.9; }
     }
     @keyframes floatGlow2 {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-      100% { transform: translate(-30px, -40px) scale(1.3); opacity: 0.8; }
+      0% { transform: translate(0,0) scale(1); opacity: 0.3; }
+      100% { transform: translate(-70px, -60px) scale(1.4); opacity: 0.8; }
     }
 
     .container {
-      background: rgba(15, 25, 45, 0.55);
-      backdrop-filter: blur(20px);
-      border-radius: 3rem;
+      background: rgba(12, 20, 30, 0.6);
+      backdrop-filter: blur(24px);
+      border-radius: 3.5rem;
       padding: 2.5rem 2rem;
-      max-width: 650px;
+      max-width: 700px;
       width: 100%;
-      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.08);
-      transition: all 0.4s ease;
+      box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 220, 150, 0.2);
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       text-align: center;
-      border: 1px solid rgba(255,255,240,0.2);
-      animation: fadeSlideUp 0.8s ease-out;
+      border: 1px solid rgba(255, 215, 170, 0.3);
+      animation: floatIn 0.9s ease-out;
+      position: relative;
+      z-index: 10;
     }
-
-    @keyframes fadeSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes floatIn {
+      0% { opacity: 0; transform: scale(0.96) translateY(40px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .hidden {
       display: none !important;
     }
 
-    /* COUNTDOWN STYLE */
+    /* COUNTDOWN PAGE — GALACTIC THEME */
     .glow-text {
       font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+      font-weight: 800;
+      background: linear-gradient(145deg, #FFE6B0, #FF9F7C, #FFD966);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       letter-spacing: -0.5px;
       margin-bottom: 0.5rem;
+      text-shadow: 0 0 15px rgba(255,180,100,0.4);
     }
-
     .countdown-card h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: #fff;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(120deg, #FFF, #C0E0FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-
-    .date-highlight {
-      background: rgba(255,215,150,0.2);
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
+    .countdown-sub {
+      font-size: 1rem;
       font-weight: 500;
+      color: #d9e6ff;
+      opacity: 0.9;
+    }
+    .date-highlight {
+      background: rgba(255, 200, 120, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 600;
       font-size: 1rem;
       backdrop-filter: blur(4px);
-      margin: 1rem 0 1.8rem 0;
-      border: 1px solid rgba(255,200,100,0.5);
-      color: #FFE3B0;
+      margin: 1rem 0 1.5rem 0;
+      border: 1px solid rgba(255, 180, 80, 0.6);
+      color: #FFEFC0;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
     }
-
     .timer-wrapper {
-      background: rgba(0,0,0,0.35);
-      border-radius: 2rem;
-      padding: 1.2rem;
-      margin: 1.5rem 0;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 2.5rem;
+      padding: 1.2rem 0.8rem;
+      margin: 1rem 0;
+      border: 1px solid rgba(255,215,150,0.3);
     }
-
     .countdown-box {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 1.3rem;
       flex-wrap: wrap;
     }
-
     .time-unit {
-      background: rgba(10, 20, 35, 0.7);
+      background: linear-gradient(145deg, #0E1A2A, #041020);
       backdrop-filter: blur(8px);
-      border-radius: 1.5rem;
-      padding: 0.8rem 1rem;
-      min-width: 85px;
+      border-radius: 1.8rem;
+      padding: 0.9rem 1rem;
+      min-width: 95px;
       text-align: center;
-      border-bottom: 2px solid #ffb347;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #FFB347;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
     }
-
+    .time-unit:hover {
+      transform: translateY(-5px);
+    }
     .time-number {
-      font-size: 2.6rem;
-      font-weight: 800;
-      font-family: monospace;
-      letter-spacing: 2px;
-      background: linear-gradient(120deg, #FFF, #FFD966);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .time-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 500;
-      color: #B9D0FF;
-      margin-top: 5px;
-    }
-
-    /* MAIN CONTENT (BIRTHDAY) */
-    .birthday-card h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #FFB347, #FF6B6B, #F9F3B0);
+      font-weight: 800;
+      font-family: 'Inter', monospace;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #FFE5A3, #FFBE6E);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      animation: shimmer 2s infinite;
+    }
+    .time-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #ADC8FF;
+      margin-top: 6px;
     }
 
-    @keyframes shimmer {
-      0% { background-position: -100% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    .birthday-card p {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin: 1rem 0;
-      color: #f0f3fa;
-    }
-
-    .cake-emoji {
-      font-size: 3.2rem;
-      margin: 15px 0;
-      display: inline-block;
-      animation: bounceCake 1.5s infinite;
-    }
-
-    @keyframes bounceCake {
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-8px); }
-    }
-
-    .spotify {
-      margin: 1.8rem 0 1rem;
-      border-radius: 20px;
+    /* BIRTHDAY CARD - CANDY CELEBRATION */
+    .birthday-card {
       overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease;
     }
-
-    .spotify:hover {
-      transform: scale(1.01);
+    .birthday-card h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #FFC371, #FF5F6D, #FFE89A);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmerText 3s infinite linear;
+      background-size: 200%;
     }
-
-    iframe {
+    @keyframes shimmerText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .cake-3d {
+      font-size: 4rem;
+      margin: 0px 0 10px;
+      display: inline-block;
+      animation: bounceCake 1.4s infinite ease;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.3));
+    }
+    @keyframes bounceCake {
+      0%,100%{ transform: translateY(0px) rotate(0deg);}
+      50%{ transform: translateY(-12px) rotate(2deg);}
+    }
+    .birthday-message {
+      font-size: 1.15rem;
+      line-height: 1.55;
+      margin: 1.2rem 0;
+      color: #F2F0FF;
+      background: rgba(0,0,0,0.2);
+      padding: 1rem;
+      border-radius: 28px;
+      backdrop-filter: blur(4px);
+    }
+    .birthday-message strong {
+      color: #FFDA88;
+      font-weight: 800;
+    }
+    .spotify {
+      margin: 1.5rem 0 0.8rem;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+    .spotify iframe {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 20px;
+      display: block;
     }
-
-    .small-note {
-      font-size: 0.8rem;
-      margin-top: 1.5rem;
-      opacity: 0.7;
-      letter-spacing: 0.3px;
-    }
-
-    button {
-      background: none;
+    .surprise-btn {
+      background: linear-gradient(105deg, #FF8C5A, #FF477E);
       border: none;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 20px;
       color: white;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+    .surprise-btn:hover {
+      transform: scale(1.02);
+      background: linear-gradient(105deg, #FFA06E, #FF6088);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .fireworks-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .small-note {
+      font-size: 0.75rem;
+      margin-top: 1.2rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
     }
 
-    /* responsive */
     @media (max-width: 550px) {
-      .container {
-        padding: 1.8rem 1rem;
-      }
-      .time-number {
-        font-size: 1.8rem;
-      }
-      .time-unit {
-        min-width: 65px;
-        padding: 0.5rem;
-      }
-      .countdown-box {
-        gap: 0.8rem;
-      }
-      .birthday-card h1 {
-        font-size: 2.2rem;
-      }
+      .container { padding: 1.6rem 1rem; }
+      .time-number { font-size: 2rem; }
+      .time-unit { min-width: 70px; padding: 0.5rem; }
+      .countdown-box { gap: 0.6rem; }
+      .birthday-card h1 { font-size: 2rem; }
+      .glow-text { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
+<div class="star-field" id="starfield"></div>
 
 <!-- COUNTDOWN SECTION -->
 <div class="container countdown-card" id="countdownPage">
-  <div class="glow-text">✨ rahasia kecil ✨</div>
-  <h1>⏳ Masih terlalu cepat...</h1>
-  <p>Halaman spesial kejutan ulang tahun akan terbuka otomatis pada</p>
-  <div class="date-highlight">🎈 14 April 2026 — pukul 00:00 WIB 🎈</div>
+  <div class="glow-text">🎀 rahasia orbit 18 🎀</div>
+  <h1>menuju pesta rahasia</h1>
+  <p class="countdown-sub">✨ waktu masih berputar perlahan ✨</p>
+  <div class="date-highlight">
+    <span>🎂</span> 14 APRIL 2026 — 00:00 WIB <span>🎈</span>
+  </div>
   <div class="timer-wrapper">
     <div class="countdown-box" id="timerContainer">
       <div class="time-unit"><div class="time-number" id="days">00</div><div class="time-label">HARI</div></div>
@@ -270,50 +317,49 @@
       <div class="time-unit"><div class="time-number" id="seconds">00</div><div class="time-label">DETIK</div></div>
     </div>
   </div>
-  <p class="small-note">⭐ bersiaplah untuk kejutan manis ⭐</p>
+  <p class="small-note">⭐ makin dekat, makin berkilau ⭐</p>
 </div>
 
-<!-- MAIN BIRTHDAY CONTENT (awalnya tersembunyi) -->
+<!-- MAIN BIRTHDAY CONTENT (surprise) -->
 <div class="container birthday-card hidden" id="mainContent">
-  <div class="cake-emoji">🎂🎉</div>
+  <div class="cake-3d">🎂✨🎈</div>
   <h1>Happy 18th Birthday! 🥳</h1>
-  <p>
-    Akhirnya waktu yang dinanti tiba ✨<br>
-    Selamat memasuki babak baru yang luar biasa! <br>
-    <strong>Semua impianmu layak terwujud 💫</strong><br>
-    Nikmati momen spesial ini dengan senyuman terindah ❤️
-  </p>
-  <!-- Spotify embed playlist (uplifting birthday vibe) -->
+  <div class="birthday-message">
+    🌟 <strong>Selamat memasuki usia emas!</strong> 🌟<br>
+    Dua puluh empat jam penuh bintang, senyum, dan harapan baru.<br>
+    Hidupmu seperti langit malam — gelap sesekali, tapi selalu ada cahaya terang.<br>
+    <strong>✨ Terbanglah setinggi angkasa ✨</strong><br>
+    💖 hari ini, esok, dan selamanya spesial 💖
+  </div>
+  <!-- Spotify playlist yang uplifting (playlist Happy birthday / cheerful) -->
   <div class="spotify">
     <iframe 
       style="border-radius:16px" 
-      src="https://open.spotify.com/playlist/1gzzuimTzV6l9Jx2p5KUvm" 
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" 
       width="100%" 
-      height="160" 
+      height="152" 
       frameBorder="0" 
       allowfullscreen="" 
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
       loading="lazy">
     </iframe>
   </div>
-  <p class="small-note">🎵 putar lagunya, nikmati harimu 🎵</p>
+  <button class="surprise-btn" id="confettiButton">🎉 kirim kejutan bintang 🎉</button>
+  <p class="small-note">🎵 nyalakan lagu, tiup lilin imajinasi 🎵</p>
 </div>
 
 <script>
   (function() {
-    // TARGET: 14 April 2026, jam 00:00:00 (Waktu setempat / local time)
-    // Penting: Menggunakan local time agar sesuai zona pengguna.
-    // Membuat tanggal target berdasarkan tahun, bulan, tanggal, jam, menit, detik lokal.
-    const targetYear = 2026;
-    const targetMonth = 3;      // April = index 3 (0-based)
-    const targetDay = 14;
-    const targetHour = 0;
-    const targetMinute = 0;
-    const targetSecond = 0;
+    // === TARGET ULTAH: 14 APRIL 2026, 00:00 WIB (local time) ===
+    const TARGET_YEAR = 2026;
+    const TARGET_MONTH = 3;      // April = 3 (0-index)
+    const TARGET_DAY = 14;
+    const TARGET_HOUR = 0;
+    const TARGET_MINUTE = 0;
+    const TARGET_SECOND = 0;
     
-    let targetDate = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
+    let targetDate = new Date(TARGET_YEAR, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
     
-    // Elemen DOM
     const countdownPage = document.getElementById("countdownPage");
     const mainContent = document.getElementById("mainContent");
     const daysSpan = document.getElementById("days");
@@ -321,119 +367,239 @@
     const minutesSpan = document.getElementById("minutes");
     const secondsSpan = document.getElementById("seconds");
     
-    // Fungsi untuk update tampilan countdown
-    function updateCountdown() {
-      const now = new Date(); // waktu realtime user (local)
+    let countdownInterval = null;
+    
+    // format dua digit
+    function formatTwoDigits(num) {
+      return num < 10 ? '0' + num : num;
+    }
+    
+    function updateCountdownDisplay() {
+      const now = new Date();
       const distance = targetDate.getTime() - now.getTime();
       
-      // Jika waktu sudah tercapai atau lewat (plus toleransi 1 detik)
       if (distance <= 0) {
-        // Hentikan interval jika sudah aktif
-        if (window.countdownInterval) {
-          clearInterval(window.countdownInterval);
-          window.countdownInterval = null;
+        // waktu sudah habis -> pindah ke birthday
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
         }
-        // Sembunyikan countdown, tampilkan main content
-        if (countdownPage && mainContent) {
+        if (countdownPage && mainContent && !countdownPage.classList.contains("hidden")) {
           countdownPage.classList.add("hidden");
           mainContent.classList.remove("hidden");
+          triggerBirthdayFireworks(); // efek meriah saat muncul
         }
         return;
       }
       
-      // Hitung sisa waktu
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const hours = Math.floor((distance % (86400000)) / (3600000));
+      const minutes = Math.floor((distance % 3600000) / 60000);
+      const seconds = Math.floor((distance % 60000) / 1000);
       
-      // Update tampilan dengan format dua digit
-      if (daysSpan) daysSpan.innerText = days < 10 ? '0' + days : days;
-      if (hoursSpan) hoursSpan.innerText = hours < 10 ? '0' + hours : hours;
-      if (minutesSpan) minutesSpan.innerText = minutes < 10 ? '0' + minutes : minutes;
-      if (secondsSpan) secondsSpan.innerText = seconds < 10 ? '0' + seconds : seconds;
+      if (daysSpan) daysSpan.innerText = formatTwoDigits(days);
+      if (hoursSpan) hoursSpan.innerText = formatTwoDigits(hours);
+      if (minutesSpan) minutesSpan.innerText = formatTwoDigits(minutes);
+      if (secondsSpan) secondsSpan.innerText = formatTwoDigits(seconds);
     }
     
-    // Cek sekali di awal untuk antisipasi jika sudah lewat tanggal (misal akses setelah 14 April 2026)
-    function initialCheck() {
+    // efek fireworks sederhana (confetti + particle)
+    function triggerBirthdayFireworks() {
+      if (typeof window.confetti === 'function') {
+        window.confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 }, startVelocity: 20, colors: ['#ffb347', '#ff6b6b', '#ffe066', '#ff85b3'] });
+        setTimeout(() => {
+          window.confetti({ particleCount: 400, spread: 130, origin: { y: 0.5, x: 0.3 }, startVelocity: 18 });
+          window.confetti({ particleCount: 400, spread: 130, origin: { y: 0.5, x: 0.7 }, startVelocity: 18 });
+        }, 200);
+      } else {
+        // fallback sederhana: bikin span confetti manual
+        for(let i=0;i<80;i++) {
+          const conf = document.createElement('div');
+          conf.style.position = 'fixed';
+          conf.style.width = Math.random() * 8 + 4 + 'px';
+          conf.style.height = Math.random() * 8 + 4 + 'px';
+          conf.style.backgroundColor = `hsl(${Math.random() * 60 + 20}, 100%, 60%)`;
+          conf.style.left = Math.random() * 100 + '%';
+          conf.style.top = '-20px';
+          conf.style.borderRadius = '50%';
+          conf.style.pointerEvents = 'none';
+          conf.style.zIndex = '9999';
+          conf.style.opacity = '0.9';
+          document.body.appendChild(conf);
+          const anim = conf.animate([
+            { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
+            { transform: `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+          ], { duration: Math.random() * 1500 + 800, easing: 'cubic-bezier(0.2,0.9,0.4,1)' });
+          anim.onfinish = () => conf.remove();
+        }
+      }
+    }
+    
+    // manual confetti load (canvas)
+    function loadConfettiLibrary() {
+      if (!window.confetti) {
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1";
+        script.onload = () => {
+          console.log("confetti loaded");
+          // jika tombol ditekan nanti langsung pakai
+        };
+        document.head.appendChild(script);
+      }
+    }
+    
+    function switchToBirthdayNow() {
+      if (countdownPage && mainContent) {
+        if (!countdownPage.classList.contains("hidden")) {
+          countdownPage.classList.add("hidden");
+          mainContent.classList.remove("hidden");
+          if (countdownInterval) clearInterval(countdownInterval);
+          countdownInterval = null;
+          triggerBirthdayFireworks();
+          setTimeout(() => {
+            if(window.confetti) window.confetti({ particleCount: 300, spread: 110, origin: { y: 0.7 } });
+          }, 500);
+        }
+      }
+    }
+    
+    // initial check jika sudah waktunya
+    function initialRevealCheck() {
       const now = new Date();
-      const targetCheck = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
-      if (now >= targetCheck) {
-        // Langsung tampilkan konten ulang tahun
+      const targetFixed = new Date(TARGET_YEAR, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
+      if (now >= targetFixed) {
         if (countdownPage && mainContent) {
           countdownPage.classList.add("hidden");
           mainContent.classList.remove("hidden");
+          triggerBirthdayFireworks();
         }
-        return true; // menandakan sudah waktunya
+        return true;
       }
       return false;
     }
     
     // Jalankan pengecekan awal
-    const isAlreadyTime = initialCheck();
+    let isAlreadyRevealed = initialRevealCheck();
     
-    // Jika belum waktunya, mulai interval countdown realtime
-    if (!isAlreadyTime) {
-      // Update pertama langsung
-      updateCountdown();
-      // Set interval setiap detik (1000ms)
-      window.countdownInterval = setInterval(updateCountdown, 1000);
+    if (!isAlreadyRevealed) {
+      updateCountdownDisplay();
+      countdownInterval = setInterval(updateCountdownDisplay, 1000);
+    } else {
+      if (countdownInterval) clearInterval(countdownInterval);
     }
     
-    // Tambahkan fallback untuk sinkronisasi ekstra (menjaga jika sistem tidur / delay)
-    // Namun setInterval sudah cukup. Juga pastikan jika halaman di-refresh pada detik H, tetap muncul.
-    // Bonus: Menggunakan visibility API untuk menghemat resource (opsional)
-    document.addEventListener("visibilitychange", function() {
-      if (!document.hidden && !isAlreadyTime && window.countdownInterval === null && new Date() < targetDate) {
-        // Jika halaman menjadi visible dan countdown belum berjalan serta belum waktunya, restart interval
-        updateCountdown();
-        window.countdownInterval = setInterval(updateCountdown, 1000);
-      } else if (!document.hidden && !isAlreadyTime && new Date() >= targetDate) {
-        // Saat halaman terlihat dan ternyata target sudah terlewati, pindahkan ke konten
-        if (countdownPage && mainContent && !mainContent.classList.contains("hidden") === false) {
-          countdownPage.classList.add("hidden");
-          mainContent.classList.remove("hidden");
-          if (window.countdownInterval) clearInterval(window.countdownInterval);
-        }
+    // === Efek bintang jatuh & hiasan ===
+    function createStars() {
+      const starContainer = document.getElementById('starfield');
+      if (!starContainer) return;
+      for (let i = 0; i < 150; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        const size = Math.random() * 3 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDuration = Math.random() * 3 + 2 + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        starContainer.appendChild(star);
       }
-    });
+    }
+    createStars();
     
-    // SIMULASI PERBAIKAN WAKTU REALTIME: 
-    // Menambahkan pengecekan ekstra setiap 10 detik untuk memastikan tidak terjadi drift
-    // karena mungkin device sleep atau perubahan timezone? Namun tetap robust.
-    setInterval(function() {
-      // Jika countdown masih aktif dan target sudah tercapai, paksa pindah ke konten
+    // Tombol surprise tambahan (confetti massive)
+    const confettiBtn = document.getElementById("confettiButton");
+    if (confettiBtn) {
+      confettiBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (window.confetti) {
+          window.confetti({ particleCount: 500, spread: 130, origin: { y: 0.6 }, startVelocity: 25, colors: ['#ffbe76', '#ff7979', '#f6e58d', '#7ed6df', '#ffb142'] });
+          setTimeout(() => {
+            window.confetti({ particleCount: 250, spread: 90, origin: { y: 0.4, x: 0.2 }, startVelocity: 20 });
+            window.confetti({ particleCount: 250, spread: 90, origin: { y: 0.4, x: 0.8 }, startVelocity: 20 });
+          }, 180);
+        } else {
+          // fallback
+          for(let s=0; s<150; s++) {
+            const div = document.createElement('div');
+            div.style.position = 'fixed';
+            div.style.width = '10px';
+            div.style.height = '10px';
+            div.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 65%)`;
+            div.style.borderRadius = '50%';
+            div.style.left = Math.random() * 100 + '%';
+            div.style.top = '0px';
+            div.style.pointerEvents = 'none';
+            div.style.zIndex = '9999';
+            document.body.appendChild(div);
+            const animKey = div.animate([
+              { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
+              { transform: `translateY(${window.innerHeight}px) rotate(360deg)`, opacity: 0 }
+            ], { duration: 1200, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' });
+            animKey.onfinish = () => div.remove();
+          }
+        }
+        // tambah efek suara? ga perlu, tetap meriah
+      });
+    }
+    
+    // reload double-check karena perubahan focus atau sleep device (visibility & extra guard)
+    function enforceRevealIfNeeded() {
       if (countdownPage && !countdownPage.classList.contains("hidden")) {
         const now = new Date();
-        const targetAgain = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
-        if (now >= targetAgain) {
-          if (window.countdownInterval) clearInterval(window.countdownInterval);
+        const targetHard = new Date(TARGET_YEAR, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
+        if (now >= targetHard) {
+          if (countdownInterval) clearInterval(countdownInterval);
           countdownPage.classList.add("hidden");
           mainContent.classList.remove("hidden");
+          triggerBirthdayFireworks();
         }
       }
-    }, 3000); // setiap 3 detik double-check
+    }
     
-    // Koreksi minor: jika user membuka halaman tepat di detik perubahan, jangan sampai stuck.
-    // Memastikan jika halaman pertama kali load dengan waktu sudah melewati 00:00 14 Apr 2026, langsung main content.
-    window.addEventListener('load', function() {
-      const nowCheck = new Date();
-      const targetHard = new Date(targetYear, targetMonth, targetDay, targetHour, targetMinute, targetSecond);
-      if (nowCheck >= targetHard && countdownPage && !countdownPage.classList.contains("hidden")) {
-        if (window.countdownInterval) clearInterval(window.countdownInterval);
-        countdownPage.classList.add("hidden");
-        mainContent.classList.remove("hidden");
-      }
-      // juga untuk mencegah countdown negatif
-      if (!countdownPage.classList.contains("hidden")) {
-        const dist = targetHard.getTime() - nowCheck.getTime();
-        if (dist <= 0) {
-          countdownPage.classList.add("hidden");
-          mainContent.classList.remove("hidden");
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        enforceRevealIfNeeded();
+        // jika masih dalam countdown dan interval mati, restart
+        if (countdownPage && !countdownPage.classList.contains("hidden") && !countdownInterval) {
+          const nowTime = new Date();
+          if (nowTime < targetDate) {
+            updateCountdownDisplay();
+            countdownInterval = setInterval(updateCountdownDisplay, 1000);
+          } else {
+            enforceRevealIfNeeded();
+          }
         }
       }
     });
     
+    // setiap 2 detik cek ekstra untuk keakuratan
+    setInterval(() => {
+      enforceRevealIfNeeded();
+    }, 2000);
+    
+    // Preload confetti library segera
+    loadConfettiLibrary();
+    
+    // tambahan efek saat halaman ultah muncul pertama kali via interval juga (jika switch karena countdown)
+    // jika user membuka di hari H namun halaman countdown masih terlihat (bug aman) paksa reveal
+    window.addEventListener('load', () => {
+      enforceRevealIfNeeded();
+      // efek awal jika mainContent sudah terbuka saat load langsung semprot confetti ringan
+      if (mainContent && !mainContent.classList.contains("hidden")) {
+        setTimeout(() => {
+          if (window.confetti) window.confetti({ particleCount: 180, spread: 80, origin: { y: 0.5 } });
+        }, 400);
+      }
+      // styling tambahan untuk container
+    });
+    
+    // fallback manual jika tombol "kejutan" ingin mengeluarkan semprotan bintang
+    // bonus: efek musik? tidak perlu, karena spotify embed sudah ada
+    
+    // Simulasi perbaikan tampilan jika ada anomali target timezone (tetap pakai local time)
+    // pastikan targetDate dihitung ulang saat ada perubahan zona waktu? tidak perlu karena semua pakai lokal.
+    // juga tambahan gaya elegan.
   })();
 </script>
 </body>
