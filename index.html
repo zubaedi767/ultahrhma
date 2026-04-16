@@ -8,42 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --accent: #e5b3a3;
-      --bg: #fffaf9;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      background-color: var(--bg);
+      background: #fffaf9;
       font-family: 'Quicksand', sans-serif;
-      overflow-x: hidden;
-      color: #4a4a4a;
-    }
-
-    .container {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
+      color: #555;
     }
 
     .card {
-      background: rgba(255,255,255,0.9);
-      padding: 35px;
+      max-width: 450px;
+      margin: auto;
+      padding: 30px;
       border-radius: 25px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     h1 {
       font-family: 'Dancing Script', cursive;
+      color: #e5b3a3;
       font-size: 3rem;
-      color: var(--accent);
     }
 
     .timer {
@@ -53,31 +38,23 @@
       margin: 20px 0;
     }
 
-    .time-box {
-      background: white;
+    .box {
+      background: #fff;
       padding: 10px;
       border-radius: 10px;
       min-width: 60px;
     }
 
-    .time-num { font-weight: bold; }
-    .time-label { font-size: 0.7rem; color: var(--accent); }
-
     .hidden { display: none; }
 
-    .playlist-wrapper {
-      margin: 20px 0;
-    }
-
-    .btn-heart {
-      background: var(--accent);
-      color: white;
-      border: none;
+    .btn {
+      margin-top: 15px;
       padding: 12px 25px;
+      border: none;
       border-radius: 30px;
+      background: #e5b3a3;
+      color: white;
       cursor: pointer;
-      font-weight: bold;
-      margin-top: 10px;
     }
 
     .spotify-link {
@@ -92,51 +69,43 @@
 
 <body>
 
-<div class="container">
+<!-- COUNTDOWN -->
+<div id="countdown" class="card">
+  <h1>Halo Adek...</h1>
+  <p>Mas lagi nunggu hari spesial kamu ❤️</p>
 
-  <!-- COUNTDOWN -->
-  <div id="countdown" class="card">
-    <h1>Halo Adek...</h1>
-    <p>Mas lagi nunggu hari spesial kamu ❤️</p>
-
-    <div class="timer">
-      <div class="time-box"><span id="d">00</span><div class="time-label">Hari</div></div>
-      <div class="time-box"><span id="h">00</span><div class="time-label">Jam</div></div>
-      <div class="time-box"><span id="m">00</span><div class="time-label">Menit</div></div>
-      <div class="time-box"><span id="s">00</span><div class="time-label">Detik</div></div>
-    </div>
-
-    <p style="font-size:0.8rem;">"Sabar ya Dek..."</p>
+  <div class="timer">
+    <div class="box"><span id="d">00</span><br>Hari</div>
+    <div class="box"><span id="h">00</span><br>Jam</div>
+    <div class="box"><span id="m">00</span><br>Menit</div>
+    <div class="box"><span id="s">00</span><br>Detik</div>
   </div>
+</div>
 
-  <!-- BIRTHDAY -->
-  <div id="bday" class="card hidden">
-    <h1>Happy Birthday ❤️</h1>
+<!-- BIRTHDAY -->
+<div id="bday" class="card hidden">
+  <h1>Happy Birthday ❤️</h1>
 
-    <p style="margin:15px 0;">
-      Selamat ulang tahun ke-18 ya Dek... <br>
-      Mas selalu bangga sama kamu 💖
-    </p>
+  <p>
+    Selamat ulang tahun ke-18 ya Dek... <br>
+    Mas selalu bangga sama kamu 💖
+  </p>
 
-    <div id="text">Klik tombol di bawah ya...</div>
+  <p id="text">Klik tombol di bawah ya...</p>
 
-    <!-- SPOTIFY -->
-    <div class="playlist-wrapper">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m0A5pKUvY"
-        width="100%" height="152" frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media;">
-      </iframe>
-    </div>
+  <!-- SPOTIFY (PASTI JALAN) -->
+  <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4dyzvuaRJ0n"
+    width="100%" height="152" frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media;">
+  </iframe>
 
-    <a href="https://open.spotify.com/playlist/37i9dQZF1DX66m0A5pKUvY" target="_blank" class="spotify-link">
-      🎧 Playlist ini Mas pilih khusus buat Adek...
-    </a>
+  <a href="https://open.spotify.com/playlist/37i9dQZF1DX4dyzvuaRJ0n" target="_blank" class="spotify-link">
+    🎧 Playlist ini Mas pilih khusus buat Adek...
+  </a>
 
-    <br>
-    <button class="btn-heart" onclick="klik()">Klik Dengan Cinta ❤️</button>
-  </div>
-
+  <br>
+  <button class="btn" onclick="klik()">Klik Dengan Cinta ❤️</button>
 </div>
 
 <script>
