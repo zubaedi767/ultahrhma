@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Adek | 18th Milestone & Unpad Journey</title>
+  <title>Untuk Adek ❤️</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --accent: #e5b3a3; /* Rose Gold */
-      --soft-pink: #ffdae0;
+      --accent: #e5b3a3;
       --bg: #fffaf9;
     }
 
@@ -21,260 +22,154 @@
       color: #4a4a4a;
     }
 
-    .bg-decoration {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(229, 179, 163, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(229, 179, 163, 0.15) 0%, transparent 40%);
-    }
-
     .container {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       padding: 20px;
       text-align: center;
     }
 
-    .petal {
-      position: fixed;
-      top: -10%;
-      pointer-events: none;
-      z-index: 1;
-      animation: fall linear forwards;
-    }
-    @keyframes fall {
-      to { transform: translateY(110vh) rotate(360deg); }
-    }
-
     .card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 40px 30px;
-      border-radius: 30px;
-      box-shadow: 0 20px 40px rgba(229, 179, 163, 0.2);
+      background: rgba(255,255,255,0.9);
+      padding: 35px;
+      border-radius: 25px;
       max-width: 500px;
       width: 100%;
-      border: 1px solid rgba(229, 179, 163, 0.3);
-      position: relative;
-      z-index: 10;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
     }
 
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.2rem;
+      font-size: 3rem;
       color: var(--accent);
-      margin-bottom: 10px;
     }
 
     .timer {
       display: flex;
-      gap: 15px;
       justify-content: center;
-      margin: 25px 0;
+      gap: 10px;
+      margin: 20px 0;
     }
 
     .time-box {
-      display: flex;
-      flex-direction: column;
       background: white;
       padding: 10px;
-      border-radius: 15px;
-      min-width: 70px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border-radius: 10px;
+      min-width: 60px;
     }
 
-    .time-num {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #6d6d6d;
-    }
+    .time-num { font-weight: bold; }
+    .time-label { font-size: 0.7rem; color: var(--accent); }
 
-    .time-label {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-    }
-
-    .adek-msg {
-      line-height: 1.8;
-      font-size: 1.05rem;
-      margin-bottom: 20px;
-      color: #555;
-    }
-
-    #motivation-text {
-      min-height: 70px;
-      margin: 15px 0;
-      font-weight: 600;
-      color: #b58373;
-      font-style: italic;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 10px;
-    }
+    .hidden { display: none; }
 
     .playlist-wrapper {
-      margin: 25px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin: 20px 0;
     }
 
     .btn-heart {
       background: var(--accent);
       color: white;
       border: none;
-      padding: 16px 32px;
-      border-radius: 50px;
-      font-weight: 700;
+      padding: 12px 25px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: 0.3s;
-      font-family: 'Quicksand', sans-serif;
-      box-shadow: 0 5px 15px rgba(229, 179, 163, 0.4);
+      font-weight: bold;
+      margin-top: 10px;
     }
 
-    .btn-heart:hover {
-      transform: translateY(-3px) scale(1.05);
-      background: #d4a292;
-    }
-
-    .hidden { display: none !important; }
-
-    .unpad-badge {
+    .spotify-link {
       display: inline-block;
-      padding: 6px 18px;
-      background: #fff4f0;
-      border: 1px solid var(--accent);
-      border-radius: 20px;
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 15px;
-      font-weight: 700;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #b58373;
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
 
-<div class="bg-decoration"></div>
-
 <div class="container">
-  <div id="countdown-section" class="card">
-    <p style="letter-spacing: 3px; font-size: 0.75rem; margin-bottom: 10px; color: #999;">A SPECIAL GIFT FROM MAS</p>
-    <h1>Halo, Adek...</h1>
-    <p style="font-size: 0.95rem;">Semesta sedang bersiap merayakan hari besarmu.</p>
-    
+
+  <!-- COUNTDOWN -->
+  <div id="countdown" class="card">
+    <h1>Halo Adek...</h1>
+    <p>Mas lagi nunggu hari spesial kamu ❤️</p>
+
     <div class="timer">
-      <div class="time-box"><span class="time-num" id="days">00</span><span class="time-label">Hari</span></div>
-      <div class="time-box"><span class="time-num" id="hours">00</span><span class="time-label">Jam</span></div>
-      <div class="time-box"><span class="time-num" id="mins">00</span><span class="time-label">Menit</span></div>
-      <div class="time-box"><span class="time-num" id="secs">00</span><span class="time-label">Detik</span></div>
+      <div class="time-box"><span id="d">00</span><div class="time-label">Hari</div></div>
+      <div class="time-box"><span id="h">00</span><div class="time-label">Jam</div></div>
+      <div class="time-box"><span id="m">00</span><div class="time-label">Menit</div></div>
+      <div class="time-box"><span id="s">00</span><div class="time-label">Detik</div></div>
     </div>
-    
-    <p style="font-size: 0.85rem; color: var(--accent); border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px;">
-      "Sabar ya Dek, hal indah butuh waktu."
+
+    <p style="font-size:0.8rem;">"Sabar ya Dek..."</p>
+  </div>
+
+  <!-- BIRTHDAY -->
+  <div id="bday" class="card hidden">
+    <h1>Happy Birthday ❤️</h1>
+
+    <p style="margin:15px 0;">
+      Selamat ulang tahun ke-18 ya Dek... <br>
+      Mas selalu bangga sama kamu 💖
     </p>
-  </div>
 
-  <div id="bday-section" class="card hidden">
-    <div class="unpad-badge">Calon Mahasiswi Unpad Kebanggaan Mas 🎓</div>
-    <h1>Happy Birthday!</h1>
-    
-    <div class="adek-msg">
-      Selamat ulang tahun yang ke-18 ya, <b>Adek</b>. <br> 
-      Hari ini duniamu bertambah satu tahun, dan impianmu bertambah satu langkah lebih dekat. Jangan pernah ragu sama kemampuan Adek sendiri ya?
-    </div>
+    <div id="text">Klik tombol di bawah ya...</div>
 
-    <div id="motivation-text">Klik tombol di bawah buat dapet semangat dari Mas! ✨</div>
-
+    <!-- SPOTIFY -->
     <div class="playlist-wrapper">
-      <iframe data-testid="embed-iframe" style="border-radius:12px" src="http://googleusercontent.com/spotify.com/6" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m0A5pKUvY"
+        width="100%" height="152" frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media;">
+      </iframe>
     </div>
 
-    <button class="btn-heart" id="heart-trigger">Klik Dengan Cinta ❤️</button>
-    
-    <p style="margin-top: 20px; font-size: 0.65rem; color: #bbb; letter-spacing: 2px;">DIBUAT KHUSUS OLEH MAS</p>
+    <a href="https://open.spotify.com/playlist/37i9dQZF1DX66m0A5pKUvY" target="_blank" class="spotify-link">
+      🎧 Playlist ini Mas pilih khusus buat Adek...
+    </a>
+
+    <br>
+    <button class="btn-heart" onclick="klik()">Klik Dengan Cinta ❤️</button>
   </div>
+
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 <script>
-  // TARGET TANGGAL
-  const targetDate = new Date("April 14, 2026 00:00:00").getTime();
+const target = new Date("April 14, 2026 00:00:00").getTime();
 
-  // 1. Logika Countdown
-  const countdownInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = target - now;
 
-    if (diff <= 0) {
-      clearInterval(countdownInterval);
-      document.getElementById('countdown-section').classList.add('hidden');
-      document.getElementById('bday-section').classList.remove('hidden');
-    } else {
-      document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-      document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-      document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-      document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
-    }
-  }, 1000);
+  if (diff <= 0) {
+    document.getElementById("countdown").classList.add("hidden");
+    document.getElementById("bday").classList.remove("hidden");
+  } else {
+    document.getElementById("d").innerText = Math.floor(diff / (1000*60*60*24));
+    document.getElementById("h").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("m").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
+    document.getElementById("s").innerText = Math.floor((diff%(1000*60))/1000);
+  }
+}, 1000);
 
-  // 2. Pesan Motivasi SNBT Unpad
-  const motivasiAdek = [
-    "Adek itu lebih dari sekadar skor SNBT. Adek cerdas dan Mas bangga!",
-    "Unpad sudah menanti Adek, semangat belajarnya ya Dek! ✨",
-    "Fokus saja pada prosesmu, biarkan takdir membawa Adek ke Jatinangor.",
-    "Jangan ragu Dek, otak Adek dirancang buat soal-soal sulit itu.",
-    "Tarik napas dulu... Adek sudah berusaha sejauh ini. Mas salut!",
-    "SNBT itu cuma tangga kecil, Adek punya sayap buat terbang tinggi.",
-    "Percaya diri ya Dek, aura mahasiswi Unpad sudah kelihatan kok! 🎓",
-    "Bayangkan namamu muncul: 'SELAMAT ADEK LOLOS DI UNPAD'!",
-    "Istirahat dulu kalau capek ya, perjuangan Adek sangat berharga buat Mas.",
-    "Adek punya potensi yang luar biasa. Unpad pasti beruntung dapet Adek!"
+function klik(){
+  const msg = [
+    "Mas bangga sama Adek ❤️",
+    "Adek pasti bisa masuk Unpad 🎓",
+    "Jangan nyerah ya...",
+    "Adek itu spesial banget buat Mas 💖",
+    "Semua impian Adek pasti tercapai ✨"
   ];
 
-  // 3. Efek Klik Tombol
-  document.getElementById('heart-trigger').addEventListener('click', () => {
-    const randomMsg = motivasiAdek[Math.floor(Math.random() * motivasiAdek.length)];
-    const textElement = document.getElementById('motivation-text');
-    
-    textElement.style.opacity = 0;
-    setTimeout(() => {
-      textElement.innerText = randomMsg;
-      textElement.style.opacity = 1;
-      textElement.style.transition = "0.5s";
-    }, 200);
-
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#e5b3a3', '#ffc0cb', '#ffffff'],
-    });
-  });
-
-  // 4. Animasi Bunga Sakura Jatuh
-  function createPetal() {
-    const petal = document.createElement('div');
-    petal.innerHTML = '🌸';
-    petal.className = 'petal';
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = Math.random() * 3 + 3 + 's';
-    petal.style.fontSize = Math.random() * 10 + 10 + 'px';
-    petal.style.opacity = Math.random() * 0.5 + 0.3;
-    document.body.appendChild(petal);
-    setTimeout(() => petal.remove(), 6000);
-  }
-  setInterval(createPetal, 400);
-
+  document.getElementById("text").innerText =
+    msg[Math.floor(Math.random()*msg.length)];
+}
 </script>
+
 </body>
 </html>
