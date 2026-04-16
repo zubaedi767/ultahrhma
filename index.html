@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Rahma | 18th Milestone</title>
+  <title>Untuk Adek | 18th Milestone & Unpad Journey</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #e5b3a3; /* Rose Gold */
+      --soft-pink: #ffdae0;
       --bg: #fffaf9;
     }
 
@@ -20,15 +21,14 @@
       color: #4a4a4a;
     }
 
-    /* Background Aesthetic */
     .bg-decoration {
       position: fixed;
       width: 100%;
       height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(circle at 10% 20%, rgba(229, 179, 163, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(229, 179, 163, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(229, 179, 163, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(229, 179, 163, 0.15) 0%, transparent 40%);
     }
 
     .container {
@@ -41,21 +41,20 @@
       text-align: center;
     }
 
-    /* Floating Heart Animation */
-    .heart-fall {
+    .petal {
       position: fixed;
       top: -10%;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
       animation: fall linear forwards;
     }
     @keyframes fall {
       to { transform: translateY(110vh) rotate(360deg); }
     }
 
-    /* Content Styling */
     .card {
-      background: white;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
       padding: 40px 30px;
       border-radius: 30px;
       box-shadow: 0 20px 40px rgba(229, 179, 163, 0.2);
@@ -68,7 +67,7 @@
 
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
+      font-size: 3.2rem;
       color: var(--accent);
       margin-bottom: 10px;
     }
@@ -77,60 +76,85 @@
       display: flex;
       gap: 15px;
       justify-content: center;
-      margin: 30px 0;
+      margin: 25px 0;
     }
 
     .time-box {
       display: flex;
       flex-direction: column;
+      background: white;
+      padding: 10px;
+      border-radius: 15px;
+      min-width: 70px;
     }
 
     .time-num {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #6d6d6d;
     }
 
     .time-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent);
     }
 
-    /* Special Message for Rahma */
-    .rahma-msg {
+    .adek-msg {
       line-height: 1.8;
-      font-size: 1rem;
-      margin-bottom: 25px;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
       color: #555;
+    }
+
+    #motivation-text {
+      min-height: 60px;
+      margin: 15px 0;
+      font-weight: 600;
+      color: #b58373;
+      font-style: italic;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .playlist-wrapper {
       margin: 20px 0;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
     .btn-heart {
       background: var(--accent);
       color: white;
       border: none;
-      padding: 15px 30px;
+      padding: 16px 32px;
       border-radius: 50px;
       font-weight: 700;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(229, 179, 163, 0.4);
+      font-family: 'Quicksand', sans-serif;
     }
 
     .btn-heart:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(229, 179, 163, 0.6);
+      transform: translateY(-3px) scale(1.05);
     }
 
-    .hidden { display: none; }
+    .hidden { display: none !important; }
+
+    .unpad-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      background: #fff4f0;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -139,9 +163,9 @@
 
 <div class="container">
   <div id="countdown-section" class="card">
-    <p style="letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 10px;">UNTUK SESEORANG YANG BERHARGA</p>
-    <h1>Dear Rahma...</h1>
-    <p>Semesta sedang menghitung mundur detik-detik menuju harimu.</p>
+    <p style="letter-spacing: 3px; font-size: 0.75rem; margin-bottom: 10px; color: #999;">A SPECIAL GIFT FROM MAS</p>
+    <h1>Halo, Adek...</h1>
+    <p style="font-size: 0.95rem;">Semesta sedang bersiap merayakan hari besarmu.</p>
     
     <div class="timer">
       <div class="time-box"><span class="time-num" id="days">00</span><span class="time-label">Hari</span></div>
@@ -150,93 +174,96 @@
       <div class="time-box"><span class="time-num" id="secs">00</span><span class="time-label">Detik</span></div>
     </div>
     
-    <p style="font-size: 0.8rem; font-style: italic; color: var(--accent);">"Tunggu sebentar lagi ya?"</p>
+    <p style="font-size: 0.85rem; color: var(--accent); border-top: 1px solid #eee; pt: 15px; margin-top: 15px;">
+      "Sabar ya Dek, hal indah butuh waktu."
+    </p>
   </div>
 
   <div id="bday-section" class="card hidden">
-    <p style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">Happy 18th Birthday</p>
-    <h1>Rahma ✨</h1>
+    <div class="unpad-badge">Calon Mahasiswi Unpad Kebanggaan Mas 🎓</div>
+    <h1>Happy Birthday!</h1>
     
-    <div class="rahma-msg">
-      Selamat ulang tahun, Rahma. Di usia 18 ini, semoga hatimu selalu penuh dengan kehangatan, langkahmu selalu ringan, dan senyummu tidak pernah pudar. Kamu adalah alasan dunia ini terasa lebih indah bagi orang-orang di sekitarmu.
+    <div class="adek-msg">
+      Selamat ulang tahun yang ke-18 ya, <b>Adek</b>. <br> 
+      Hari ini duniamu bertambah satu tahun, dan impianmu bertambah satu langkah lebih dekat. Jangan pernah ragu sama kemampuan Adek sendiri ya?
     </div>
 
+    <div id="motivation-text">Klik tombol di bawah buat dapet semangat dari Mas! ✨</div>
+
     <div class="playlist-wrapper">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6XTxBCSj79B?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqI595Y6m9Y" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
     <button class="btn-heart" id="heart-trigger">Klik Dengan Cinta ❤️</button>
+    
+    <p style="margin-top: 20px; font-size: 0.65rem; color: #bbb; letter-spacing: 2px;">DIBUAT KHUSUS OLEH MAS</p>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 <script>
-  // ATUR TANGGAL DISINI
   const targetDate = new Date("April 14, 2026 00:00:00").getTime();
 
-  function updateTimer() {
+  const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const diff = targetDate - now;
 
     if (diff <= 0) {
+      clearInterval(countdownInterval);
       document.getElementById('countdown-section').classList.add('hidden');
       document.getElementById('bday-section').classList.remove('hidden');
-      return;
+    } else {
+      document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+      document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+      document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }
+  }, 1000);
 
-    document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
-  }
+  const motivasiAdek = [
+    "Adek itu lebih dari sekadar skor SNBT. Adek cerdas dan Mas bangga!",
+    "Unpad sudah menanti Adek, semangat belajarnya ya Dek! ✨",
+    "Fokus saja pada prosesmu, biarkan takdir membawa Adek ke Jatinangor.",
+    "Jangan ragu Dek, otak Adek dirancang buat soal-soal sulit itu.",
+    "Tarik napas dulu... Adek sudah berusaha sejauh ini. Mas salut!",
+    "SNBT itu cuma tangga kecil, Adek punya sayap buat terbang tinggi.",
+    "Percaya diri ya Dek, aura mahasiswi Unpad sudah kelihatan kok! 🎓",
+    "Bayangkan namamu muncul: 'SELAMAT ADEK LOLOS DI UNPAD'!",
+    "Istirahat dulu kalau capek ya, perjuangan Adek sangat berharga buat Mas.",
+    "Adek punya potensi yang luar biasa. Unpad pasti beruntung dapet Adek!"
+  ];
 
-  setInterval(updateTimer, 1000);
-
-  // Efek Hati saat tombol diklik
   document.getElementById('heart-trigger').addEventListener('click', () => {
-    const duration = 15 * 1000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    const randomMsg = motivasiAdek[Math.floor(Math.random() * motivasiAdek.length)];
+    const textElement = document.getElementById('motivation-text');
+    
+    textElement.style.opacity = 0;
+    setTimeout(() => {
+      textElement.innerText = randomMsg;
+      textElement.style.opacity = 1;
+      textElement.style.transition = "0.5s";
+    }, 200);
 
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    const interval = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      confetti(Object.assign({}, defaults, { 
-        particleCount, 
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        colors: ['#e5b3a3', '#ffc0cb', '#ffffff']
-      }));
-      confetti(Object.assign({}, defaults, { 
-        particleCount, 
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        colors: ['#e5b3a3', '#ffc0cb', '#ffffff']
-      }));
-    }, 250);
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#e5b3a3', '#ffc0cb', '#ffffff'],
+    });
   });
 
-  // Hujan kelopak bunga statis
   function createPetal() {
     const petal = document.createElement('div');
     petal.innerHTML = '🌸';
-    petal.className = 'heart-fall';
+    petal.className = 'petal';
     petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = Math.random() * 3 + 2 + 's';
-    petal.style.fontSize = Math.random() * 15 + 10 + 'px';
-    petal.style.opacity = Math.random();
+    petal.style.animationDuration = Math.random() * 3 + 3 + 's';
+    petal.style.fontSize = Math.random() * 10 + 10 + 'px';
+    petal.style.opacity = Math.random() * 0.5 + 0.3;
     document.body.appendChild(petal);
-    setTimeout(() => petal.remove(), 5000);
+    setTimeout(() => petal.remove(), 6000);
   }
-  setInterval(createPetal, 300);
-
+  setInterval(createPetal, 400);
 </script>
 </body>
 </html>
