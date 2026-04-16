@@ -2,605 +2,241 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>✨ 18th Orbit | Birthday Countdown & Surprise ✨</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Rahma | 18th Milestone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --accent: #e5b3a3; /* Rose Gold */
+      --bg: #fffaf9;
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      min-height: 100vh;
-      background: radial-gradient(circle at 30% 10%, #0B0E1A, #010101);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Inter', sans-serif;
-      padding: 1.5rem;
-      position: relative;
+      background-color: var(--bg);
+      font-family: 'Quicksand', sans-serif;
       overflow-x: hidden;
-      cursor: default;
+      color: #4a4a4a;
     }
 
-    /* floating magical dust */
-    .star-field {
+    /* Background Aesthetic */
+    .bg-decoration {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .star {
-      position: absolute;
-      background: radial-gradient(circle, #fff9c4, #ffd966);
-      border-radius: 50%;
-      opacity: 0;
-      animation: twinkle 4s infinite alternate;
-    }
-    @keyframes twinkle {
-      0% { opacity: 0; transform: scale(0.5); }
-      100% { opacity: 0.9; transform: scale(1); }
-    }
-
-    /* floating neon orbs */
-    body::before {
-      content: '';
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 80, 150, 0.25), transparent 70%);
-      top: -20%;
-      left: -15%;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(90px);
-      animation: floatGlow1 18s infinite alternate;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, rgba(80, 150, 255, 0.25), transparent 70%);
-      bottom: -20%;
-      right: -15%;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(100px);
-      animation: floatGlow2 20s infinite alternate;
-      z-index: 0;
-    }
-    @keyframes floatGlow1 {
-      0% { transform: translate(0,0) scale(1); opacity: 0.4; }
-      100% { transform: translate(60px, 70px) scale(1.3); opacity: 0.9; }
-    }
-    @keyframes floatGlow2 {
-      0% { transform: translate(0,0) scale(1); opacity: 0.3; }
-      100% { transform: translate(-70px, -60px) scale(1.4); opacity: 0.8; }
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(229, 179, 163, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(229, 179, 163, 0.1) 0%, transparent 40%);
     }
 
     .container {
-      background: rgba(12, 20, 30, 0.6);
-      backdrop-filter: blur(24px);
-      border-radius: 3.5rem;
-      padding: 2.5rem 2rem;
-      max-width: 700px;
-      width: 100%;
-      box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 220, 150, 0.2);
-      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
       text-align: center;
-      border: 1px solid rgba(255, 215, 170, 0.3);
-      animation: floatIn 0.9s ease-out;
+    }
+
+    /* Floating Heart Animation */
+    .heart-fall {
+      position: fixed;
+      top: -10%;
+      pointer-events: none;
+      z-index: 0;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* Content Styling */
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(229, 179, 163, 0.2);
+      max-width: 500px;
+      width: 100%;
+      border: 1px solid rgba(229, 179, 163, 0.3);
       position: relative;
       z-index: 10;
     }
-    @keyframes floatIn {
-      0% { opacity: 0; transform: scale(0.96) translateY(40px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
-    }
 
-    .hidden {
-      display: none !important;
-    }
-
-    /* COUNTDOWN PAGE — GALACTIC THEME */
-    .glow-text {
+    h1 {
+      font-family: 'Dancing Script', cursive;
       font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(145deg, #FFE6B0, #FF9F7C, #FFD966);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 15px rgba(255,180,100,0.4);
+      color: var(--accent);
+      margin-bottom: 10px;
     }
-    .countdown-card h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(120deg, #FFF, #C0E0FF);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .countdown-sub {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #d9e6ff;
-      opacity: 0.9;
-    }
-    .date-highlight {
-      background: rgba(255, 200, 120, 0.2);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0.5rem 1.4rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      backdrop-filter: blur(4px);
-      margin: 1rem 0 1.5rem 0;
-      border: 1px solid rgba(255, 180, 80, 0.6);
-      color: #FFEFC0;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-    }
-    .timer-wrapper {
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 2.5rem;
-      padding: 1.2rem 0.8rem;
-      margin: 1rem 0;
-      border: 1px solid rgba(255,215,150,0.3);
-    }
-    .countdown-box {
+
+    .timer {
       display: flex;
+      gap: 15px;
       justify-content: center;
-      gap: 1.3rem;
-      flex-wrap: wrap;
+      margin: 30px 0;
     }
-    .time-unit {
-      background: linear-gradient(145deg, #0E1A2A, #041020);
-      backdrop-filter: blur(8px);
-      border-radius: 1.8rem;
-      padding: 0.9rem 1rem;
-      min-width: 95px;
-      text-align: center;
-      border-bottom: 3px solid #FFB347;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease;
+
+    .time-box {
+      display: flex;
+      flex-direction: column;
     }
-    .time-unit:hover {
-      transform: translateY(-5px);
+
+    .time-num {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6d6d6d;
     }
-    .time-number {
-      font-size: 3rem;
-      font-weight: 800;
-      font-family: 'Inter', monospace;
-      letter-spacing: 3px;
-      background: linear-gradient(135deg, #FFE5A3, #FFBE6E);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+
     .time-label {
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: #ADC8FF;
-      margin-top: 6px;
+      letter-spacing: 1px;
+      color: var(--accent);
     }
 
-    /* BIRTHDAY CARD - CANDY CELEBRATION */
-    .birthday-card {
-      overflow: hidden;
-    }
-    .birthday-card h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #FFC371, #FF5F6D, #FFE89A);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: shimmerText 3s infinite linear;
-      background-size: 200%;
-    }
-    @keyframes shimmerText {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .cake-3d {
-      font-size: 4rem;
-      margin: 0px 0 10px;
-      display: inline-block;
-      animation: bounceCake 1.4s infinite ease;
-      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.3));
-    }
-    @keyframes bounceCake {
-      0%,100%{ transform: translateY(0px) rotate(0deg);}
-      50%{ transform: translateY(-12px) rotate(2deg);}
-    }
-    .birthday-message {
-      font-size: 1.15rem;
-      line-height: 1.55;
-      margin: 1.2rem 0;
-      color: #F2F0FF;
-      background: rgba(0,0,0,0.2);
-      padding: 1rem;
-      border-radius: 28px;
-      backdrop-filter: blur(4px);
-    }
-    .birthday-message strong {
-      color: #FFDA88;
-      font-weight: 800;
-    }
-    .spotify {
-      margin: 1.5rem 0 0.8rem;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5);
-      transition: all 0.3s ease;
-    }
-    .spotify iframe {
-      width: 100%;
-      border-radius: 20px;
-      display: block;
-    }
-    .surprise-btn {
-      background: linear-gradient(105deg, #FF8C5A, #FF477E);
-      border: none;
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: bold;
+    /* Special Message for Rahma */
+    .rahma-msg {
+      line-height: 1.8;
       font-size: 1rem;
-      margin-top: 20px;
-      color: white;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: 0.2s;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-    }
-    .surprise-btn:hover {
-      transform: scale(1.02);
-      background: linear-gradient(105deg, #FFA06E, #FF6088);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-    .fireworks-zone {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 999;
-    }
-    .small-note {
-      font-size: 0.75rem;
-      margin-top: 1.2rem;
-      opacity: 0.7;
-      letter-spacing: 0.5px;
+      margin-bottom: 25px;
+      color: #555;
     }
 
-    @media (max-width: 550px) {
-      .container { padding: 1.6rem 1rem; }
-      .time-number { font-size: 2rem; }
-      .time-unit { min-width: 70px; padding: 0.5rem; }
-      .countdown-box { gap: 0.6rem; }
-      .birthday-card h1 { font-size: 2rem; }
-      .glow-text { font-size: 2rem; }
+    .playlist-wrapper {
+      margin: 20px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
+
+    .btn-heart {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(229, 179, 163, 0.4);
+    }
+
+    .btn-heart:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(229, 179, 163, 0.6);
+    }
+
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-<div class="star-field" id="starfield"></div>
 
-<!-- COUNTDOWN SECTION -->
-<div class="container countdown-card" id="countdownPage">
-  <div class="glow-text">🎀 rahasia orbit 18 🎀</div>
-  <h1>menuju pesta rahasia</h1>
-  <p class="countdown-sub">✨ waktu masih berputar perlahan ✨</p>
-  <div class="date-highlight">
-    <span>🎂</span> 14 APRIL 2026 — 00:00 WIB <span>🎈</span>
-  </div>
-  <div class="timer-wrapper">
-    <div class="countdown-box" id="timerContainer">
-      <div class="time-unit"><div class="time-number" id="days">00</div><div class="time-label">HARI</div></div>
-      <div class="time-unit"><div class="time-number" id="hours">00</div><div class="time-label">JAM</div></div>
-      <div class="time-unit"><div class="time-number" id="minutes">00</div><div class="time-label">MENIT</div></div>
-      <div class="time-unit"><div class="time-number" id="seconds">00</div><div class="time-label">DETIK</div></div>
+<div class="bg-decoration"></div>
+
+<div class="container">
+  <div id="countdown-section" class="card">
+    <p style="letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 10px;">UNTUK SESEORANG YANG BERHARGA</p>
+    <h1>Dear Rahma...</h1>
+    <p>Semesta sedang menghitung mundur detik-detik menuju harimu.</p>
+    
+    <div class="timer">
+      <div class="time-box"><span class="time-num" id="days">00</span><span class="time-label">Hari</span></div>
+      <div class="time-box"><span class="time-num" id="hours">00</span><span class="time-label">Jam</span></div>
+      <div class="time-box"><span class="time-num" id="mins">00</span><span class="time-label">Menit</span></div>
+      <div class="time-box"><span class="time-num" id="secs">00</span><span class="time-label">Detik</span></div>
     </div>
+    
+    <p style="font-size: 0.8rem; font-style: italic; color: var(--accent);">"Tunggu sebentar lagi ya?"</p>
   </div>
-  <p class="small-note">⭐ makin dekat, makin berkilau ⭐</p>
+
+  <div id="bday-section" class="card hidden">
+    <p style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">Happy 18th Birthday</p>
+    <h1>Rahma ✨</h1>
+    
+    <div class="rahma-msg">
+      Selamat ulang tahun, Rahma. Di usia 18 ini, semoga hatimu selalu penuh dengan kehangatan, langkahmu selalu ringan, dan senyummu tidak pernah pudar. Kamu adalah alasan dunia ini terasa lebih indah bagi orang-orang di sekitarmu.
+    </div>
+
+    <div class="playlist-wrapper">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6XTxBCSj79B?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <button class="btn-heart" id="heart-trigger">Klik Dengan Cinta ❤️</button>
+  </div>
 </div>
 
-<!-- MAIN BIRTHDAY CONTENT (surprise) -->
-<div class="container birthday-card hidden" id="mainContent">
-  <div class="cake-3d">🎂✨🎈</div>
-  <h1>Happy 18th Birthday! 🥳</h1>
-  <div class="birthday-message">
-    🌟 <strong>Selamat memasuki usia emas!</strong> 🌟<br>
-    Dua puluh empat jam penuh bintang, senyum, dan harapan baru.<br>
-    Hidupmu seperti langit malam — gelap sesekali, tapi selalu ada cahaya terang.<br>
-    <strong>✨ Terbanglah setinggi angkasa ✨</strong><br>
-    💖 hari ini, esok, dan selamanya spesial 💖
-  </div>
-  <!-- Spotify playlist yang uplifting (playlist Happy birthday / cheerful) -->
-  <div class="spotify">
-    <iframe 
-      style="border-radius:16px" 
-      src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC" 
-      width="100%" 
-      height="152" 
-      frameBorder="0" 
-      allowfullscreen="" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy">
-    </iframe>
-  </div>
-  <button class="surprise-btn" id="confettiButton">🎉 kirim kejutan bintang 🎉</button>
-  <p class="small-note">🎵 nyalakan lagu, tiup lilin imajinasi 🎵</p>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 <script>
-  (function() {
-    // === TARGET ULTAH: 14 APRIL 2026, 00:00 WIB (local time) ===
-    const TARGET_YEAR = 2026;
-    const TARGET_MONTH = 3;      // April = 3 (0-index)
-    const TARGET_DAY = 14;
-    const TARGET_HOUR = 0;
-    const TARGET_MINUTE = 0;
-    const TARGET_SECOND = 0;
-    
-    let targetDate = new Date(TARGET_YEAR, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
-    
-    const countdownPage = document.getElementById("countdownPage");
-    const mainContent = document.getElementById("mainContent");
-    const daysSpan = document.getElementById("days");
-    const hoursSpan = document.getElementById("hours");
-    const minutesSpan = document.getElementById("minutes");
-    const secondsSpan = document.getElementById("seconds");
-    
-    let countdownInterval = null;
-    
-    // format dua digit
-    function formatTwoDigits(num) {
-      return num < 10 ? '0' + num : num;
+  // ATUR TANGGAL DISINI
+  const targetDate = new Date("April 14, 2026 00:00:00").getTime();
+
+  function updateTimer() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdown-section').classList.add('hidden');
+      document.getElementById('bday-section').classList.remove('hidden');
+      return;
     }
-    
-    function updateCountdownDisplay() {
-      const now = new Date();
-      const distance = targetDate.getTime() - now.getTime();
-      
-      if (distance <= 0) {
-        // waktu sudah habis -> pindah ke birthday
-        if (countdownInterval) {
-          clearInterval(countdownInterval);
-          countdownInterval = null;
-        }
-        if (countdownPage && mainContent && !countdownPage.classList.contains("hidden")) {
-          countdownPage.classList.add("hidden");
-          mainContent.classList.remove("hidden");
-          triggerBirthdayFireworks(); // efek meriah saat muncul
-        }
-        return;
+
+    document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+  }
+
+  setInterval(updateTimer, 1000);
+
+  // Efek Hati saat tombol diklik
+  document.getElementById('heart-trigger').addEventListener('click', () => {
+    const duration = 15 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
       }
-      
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (86400000)) / (3600000));
-      const minutes = Math.floor((distance % 3600000) / 60000);
-      const seconds = Math.floor((distance % 60000) / 1000);
-      
-      if (daysSpan) daysSpan.innerText = formatTwoDigits(days);
-      if (hoursSpan) hoursSpan.innerText = formatTwoDigits(hours);
-      if (minutesSpan) minutesSpan.innerText = formatTwoDigits(minutes);
-      if (secondsSpan) secondsSpan.innerText = formatTwoDigits(seconds);
-    }
-    
-    // efek fireworks sederhana (confetti + particle)
-    function triggerBirthdayFireworks() {
-      if (typeof window.confetti === 'function') {
-        window.confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 }, startVelocity: 20, colors: ['#ffb347', '#ff6b6b', '#ffe066', '#ff85b3'] });
-        setTimeout(() => {
-          window.confetti({ particleCount: 400, spread: 130, origin: { y: 0.5, x: 0.3 }, startVelocity: 18 });
-          window.confetti({ particleCount: 400, spread: 130, origin: { y: 0.5, x: 0.7 }, startVelocity: 18 });
-        }, 200);
-      } else {
-        // fallback sederhana: bikin span confetti manual
-        for(let i=0;i<80;i++) {
-          const conf = document.createElement('div');
-          conf.style.position = 'fixed';
-          conf.style.width = Math.random() * 8 + 4 + 'px';
-          conf.style.height = Math.random() * 8 + 4 + 'px';
-          conf.style.backgroundColor = `hsl(${Math.random() * 60 + 20}, 100%, 60%)`;
-          conf.style.left = Math.random() * 100 + '%';
-          conf.style.top = '-20px';
-          conf.style.borderRadius = '50%';
-          conf.style.pointerEvents = 'none';
-          conf.style.zIndex = '9999';
-          conf.style.opacity = '0.9';
-          document.body.appendChild(conf);
-          const anim = conf.animate([
-            { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
-            { transform: `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-          ], { duration: Math.random() * 1500 + 800, easing: 'cubic-bezier(0.2,0.9,0.4,1)' });
-          anim.onfinish = () => conf.remove();
-        }
-      }
-    }
-    
-    // manual confetti load (canvas)
-    function loadConfettiLibrary() {
-      if (!window.confetti) {
-        const script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1";
-        script.onload = () => {
-          console.log("confetti loaded");
-          // jika tombol ditekan nanti langsung pakai
-        };
-        document.head.appendChild(script);
-      }
-    }
-    
-    function switchToBirthdayNow() {
-      if (countdownPage && mainContent) {
-        if (!countdownPage.classList.contains("hidden")) {
-          countdownPage.classList.add("hidden");
-          mainContent.classList.remove("hidden");
-          if (countdownInterval) clearInterval(countdownInterval);
-          countdownInterval = null;
-          triggerBirthdayFireworks();
-          setTimeout(() => {
-            if(window.confetti) window.confetti({ particleCount: 300, spread: 110, origin: { y: 0.7 } });
-          }, 500);
-        }
-      }
-    }
-    
-    // initial check jika sudah waktunya
-    function initialRevealCheck() {
-      const now = new Date();
-      const targetFixed = new Date(TARGET_YEAR, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
-      if (now >= targetFixed) {
-        if (countdownPage && mainContent) {
-          countdownPage.classList.add("hidden");
-          mainContent.classList.remove("hidden");
-          triggerBirthdayFireworks();
-        }
-        return true;
-      }
-      return false;
-    }
-    
-    // Jalankan pengecekan awal
-    let isAlreadyRevealed = initialRevealCheck();
-    
-    if (!isAlreadyRevealed) {
-      updateCountdownDisplay();
-      countdownInterval = setInterval(updateCountdownDisplay, 1000);
-    } else {
-      if (countdownInterval) clearInterval(countdownInterval);
-    }
-    
-    // === Efek bintang jatuh & hiasan ===
-    function createStars() {
-      const starContainer = document.getElementById('starfield');
-      if (!starContainer) return;
-      for (let i = 0; i < 150; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        const size = Math.random() * 3 + 1;
-        star.style.width = size + 'px';
-        star.style.height = size + 'px';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.animationDuration = Math.random() * 3 + 2 + 's';
-        star.style.animationDelay = Math.random() * 5 + 's';
-        starContainer.appendChild(star);
-      }
-    }
-    createStars();
-    
-    // Tombol surprise tambahan (confetti massive)
-    const confettiBtn = document.getElementById("confettiButton");
-    if (confettiBtn) {
-      confettiBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (window.confetti) {
-          window.confetti({ particleCount: 500, spread: 130, origin: { y: 0.6 }, startVelocity: 25, colors: ['#ffbe76', '#ff7979', '#f6e58d', '#7ed6df', '#ffb142'] });
-          setTimeout(() => {
-            window.confetti({ particleCount: 250, spread: 90, origin: { y: 0.4, x: 0.2 }, startVelocity: 20 });
-            window.confetti({ particleCount: 250, spread: 90, origin: { y: 0.4, x: 0.8 }, startVelocity: 20 });
-          }, 180);
-        } else {
-          // fallback
-          for(let s=0; s<150; s++) {
-            const div = document.createElement('div');
-            div.style.position = 'fixed';
-            div.style.width = '10px';
-            div.style.height = '10px';
-            div.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 65%)`;
-            div.style.borderRadius = '50%';
-            div.style.left = Math.random() * 100 + '%';
-            div.style.top = '0px';
-            div.style.pointerEvents = 'none';
-            div.style.zIndex = '9999';
-            document.body.appendChild(div);
-            const animKey = div.animate([
-              { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
-              { transform: `translateY(${window.innerHeight}px) rotate(360deg)`, opacity: 0 }
-            ], { duration: 1200, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' });
-            animKey.onfinish = () => div.remove();
-          }
-        }
-        // tambah efek suara? ga perlu, tetap meriah
-      });
-    }
-    
-    // reload double-check karena perubahan focus atau sleep device (visibility & extra guard)
-    function enforceRevealIfNeeded() {
-      if (countdownPage && !countdownPage.classList.contains("hidden")) {
-        const now = new Date();
-        const targetHard = new Date(TARGET_YEAR, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
-        if (now >= targetHard) {
-          if (countdownInterval) clearInterval(countdownInterval);
-          countdownPage.classList.add("hidden");
-          mainContent.classList.remove("hidden");
-          triggerBirthdayFireworks();
-        }
-      }
-    }
-    
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) {
-        enforceRevealIfNeeded();
-        // jika masih dalam countdown dan interval mati, restart
-        if (countdownPage && !countdownPage.classList.contains("hidden") && !countdownInterval) {
-          const nowTime = new Date();
-          if (nowTime < targetDate) {
-            updateCountdownDisplay();
-            countdownInterval = setInterval(updateCountdownDisplay, 1000);
-          } else {
-            enforceRevealIfNeeded();
-          }
-        }
-      }
-    });
-    
-    // setiap 2 detik cek ekstra untuk keakuratan
-    setInterval(() => {
-      enforceRevealIfNeeded();
-    }, 2000);
-    
-    // Preload confetti library segera
-    loadConfettiLibrary();
-    
-    // tambahan efek saat halaman ultah muncul pertama kali via interval juga (jika switch karena countdown)
-    // jika user membuka di hari H namun halaman countdown masih terlihat (bug aman) paksa reveal
-    window.addEventListener('load', () => {
-      enforceRevealIfNeeded();
-      // efek awal jika mainContent sudah terbuka saat load langsung semprot confetti ringan
-      if (mainContent && !mainContent.classList.contains("hidden")) {
-        setTimeout(() => {
-          if (window.confetti) window.confetti({ particleCount: 180, spread: 80, origin: { y: 0.5 } });
-        }, 400);
-      }
-      // styling tambahan untuk container
-    });
-    
-    // fallback manual jika tombol "kejutan" ingin mengeluarkan semprotan bintang
-    // bonus: efek musik? tidak perlu, karena spotify embed sudah ada
-    
-    // Simulasi perbaikan tampilan jika ada anomali target timezone (tetap pakai local time)
-    // pastikan targetDate dihitung ulang saat ada perubahan zona waktu? tidak perlu karena semua pakai lokal.
-    // juga tambahan gaya elegan.
-  })();
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti(Object.assign({}, defaults, { 
+        particleCount, 
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        colors: ['#e5b3a3', '#ffc0cb', '#ffffff']
+      }));
+      confetti(Object.assign({}, defaults, { 
+        particleCount, 
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+        colors: ['#e5b3a3', '#ffc0cb', '#ffffff']
+      }));
+    }, 250);
+  });
+
+  // Hujan kelopak bunga statis
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.innerHTML = '🌸';
+    petal.className = 'heart-fall';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+    petal.style.fontSize = Math.random() * 15 + 10 + 'px';
+    petal.style.opacity = Math.random();
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 5000);
+  }
+  setInterval(createPetal, 300);
+
 </script>
 </body>
 </html>
