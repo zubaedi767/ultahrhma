@@ -53,7 +53,7 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(10px);
       padding: 40px 30px;
       border-radius: 30px;
@@ -86,6 +86,7 @@
       padding: 10px;
       border-radius: 15px;
       min-width: 70px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
     }
 
     .time-num {
@@ -109,7 +110,7 @@
     }
 
     #motivation-text {
-      min-height: 60px;
+      min-height: 70px;
       margin: 15px 0;
       font-weight: 600;
       color: #b58373;
@@ -118,12 +119,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0 10px;
     }
 
     .playlist-wrapper {
-      margin: 20px 0;
-      border-radius: 20px;
+      margin: 25px 0;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
     .btn-heart {
@@ -136,17 +139,19 @@
       cursor: pointer;
       transition: 0.3s;
       font-family: 'Quicksand', sans-serif;
+      box-shadow: 0 5px 15px rgba(229, 179, 163, 0.4);
     }
 
     .btn-heart:hover {
       transform: translateY(-3px) scale(1.05);
+      background: #d4a292;
     }
 
     .hidden { display: none !important; }
 
     .unpad-badge {
       display: inline-block;
-      padding: 5px 15px;
+      padding: 6px 18px;
       background: #fff4f0;
       border: 1px solid var(--accent);
       border-radius: 20px;
@@ -174,7 +179,7 @@
       <div class="time-box"><span class="time-num" id="secs">00</span><span class="time-label">Detik</span></div>
     </div>
     
-    <p style="font-size: 0.85rem; color: var(--accent); border-top: 1px solid #eee; pt: 15px; margin-top: 15px;">
+    <p style="font-size: 0.85rem; color: var(--accent); border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px;">
       "Sabar ya Dek, hal indah butuh waktu."
     </p>
   </div>
@@ -191,7 +196,7 @@
     <div id="motivation-text">Klik tombol di bawah buat dapet semangat dari Mas! ✨</div>
 
     <div class="playlist-wrapper">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqI595Y6m9Y" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="http://googleusercontent.com/spotify.com/6" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
     <button class="btn-heart" id="heart-trigger">Klik Dengan Cinta ❤️</button>
@@ -202,8 +207,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 <script>
+  // TARGET TANGGAL
   const targetDate = new Date("April 14, 2026 00:00:00").getTime();
 
+  // 1. Logika Countdown
   const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const diff = targetDate - now;
@@ -220,6 +227,7 @@
     }
   }, 1000);
 
+  // 2. Pesan Motivasi SNBT Unpad
   const motivasiAdek = [
     "Adek itu lebih dari sekadar skor SNBT. Adek cerdas dan Mas bangga!",
     "Unpad sudah menanti Adek, semangat belajarnya ya Dek! ✨",
@@ -233,6 +241,7 @@
     "Adek punya potensi yang luar biasa. Unpad pasti beruntung dapet Adek!"
   ];
 
+  // 3. Efek Klik Tombol
   document.getElementById('heart-trigger').addEventListener('click', () => {
     const randomMsg = motivasiAdek[Math.floor(Math.random() * motivasiAdek.length)];
     const textElement = document.getElementById('motivation-text');
@@ -252,6 +261,7 @@
     });
   });
 
+  // 4. Animasi Bunga Sakura Jatuh
   function createPetal() {
     const petal = document.createElement('div');
     petal.innerHTML = '🌸';
@@ -264,6 +274,7 @@
     setTimeout(() => petal.remove(), 6000);
   }
   setInterval(createPetal, 400);
+
 </script>
 </body>
 </html>
